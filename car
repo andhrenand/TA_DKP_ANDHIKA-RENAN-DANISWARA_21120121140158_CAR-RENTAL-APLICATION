@@ -1,0 +1,20 @@
+class Car:
+    def __init__(self, brand: str, price: int) -> None:
+        self.__brand = brand
+        self.__price = price
+
+    def __str__(self) -> str:
+        return self.__brand
+
+    # setters and getters
+    def set_brand(self, name: str) -> None:
+        self.__brand = name
+    
+    def set_price(self, price: int) -> None:
+        self.__price = price
+
+    def get_brand(self) -> str:
+        return self.__brand
+
+    def get_price(self) -> int:
+        return self.__price
