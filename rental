@@ -1,0 +1,48 @@
+from car import Car
+from datetime import datetime, timedelta
+
+class Rental:
+    def __init__(self, car: Car, duration: int) -> None:
+        self.__car = car
+        self.__duration = duration
+        self.__start_date = datetime.now()
+        self.__end_date = self.__start_date + timedelta(days=duration)
+
+    def __str__(self) -> str:
+        text = ''
+
+        text += 'Car\t\t: ' + self.__car.get_brand() + '\n'
+        text += 'Price\t\t: ' + str(self.get_total_price()) + '\n'
+        text += 'Duration\t: ' + str(self.__duration) + ' days\n'
+        text += 'Start Date\t: ' + self.__start_date.strftime("%d/%m/%Y") + '\n'
+        text += 'End Date\t: ' + self.__end_date.strftime("%d/%m/%Y") + '\n'
+
+        return text
+
+    # setters and getters
+    def set_car(self, car: Car) -> None:
+        self.__car = car
+
+    def set_duration(self, duration: int) -> None:
+        self.__duration = duration
+
+    def set_start_date(self, start_date: datetime) -> None:
+        self.__start_date = start_date
+
+    def set_end_date(self, end_date: datetime) -> None:
+        self.__end_date = end_date
+        
+    def get_car(self) -> Car:
+        return self.__car
+
+    def get_duration(self) -> int:
+        return self.__duration
+
+    def get_start_date(self) -> datetime:
+        return self.__start_date
+
+    def get_end_date(self) -> datetime:
+        return self.__end_date
+
+    def get_total_price(self) -> int:
+        return self.__car.get_price() * self.__duration
